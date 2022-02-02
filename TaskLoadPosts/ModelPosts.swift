@@ -9,20 +9,20 @@ import Foundation
 
 struct ModelPosts: Decodable {
     let posts: [AllPosts]
+}
+
+struct AllPosts: Decodable {
+    let postId: Int?
+    let timeshamp: Int
+    let title: String?
+    let previewText: String?
+    let likesCount: Int
     
-    struct AllPosts: Decodable {
-        let postId: Int?
-        let timeshamp: Int?
-        let title: String?
-        let previewText: String?
-        let likesCount: Int?
-        
-        enum CodingKeys: String, CodingKey {
-            case likesCount = "likes_count"
-            case previewText = "preview_text"
-            case postId = "postId"
-            case timeshamp = "timeshamp"
-            case title = "title"
-        }
+    enum CodingKeys: String, CodingKey {
+        case likesCount = "likes_count"
+        case previewText = "preview_text"
+        case postId = "postId"
+        case timeshamp = "timeshamp"
+        case title = "title"
     }
 }
