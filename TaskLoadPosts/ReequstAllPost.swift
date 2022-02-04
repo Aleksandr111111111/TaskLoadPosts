@@ -9,12 +9,12 @@ import Foundation
 import Alamofire
 
 struct Constans {
-    let gg = URL(string: "https://raw.githubusercontent.com/aShaforostov/jsons/master/api/main.json")
+    let urlAllPosts = URL(string: "https://raw.githubusercontent.com/aShaforostov/jsons/master/api/main.json")
 }
 
 class Network {
     func allFetchPost(completion: @escaping(ModelPosts) -> Void) {
-        guard let url = Constans().gg else { return }
+        guard let url = Constans().urlAllPosts else { return }
         AF.request(url )
             .validate()
             .responseDecodable(of: ModelPosts.self) { response in
@@ -23,7 +23,4 @@ class Network {
             }
     }
 }
-
-
-
 
